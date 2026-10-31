@@ -1,0 +1,10 @@
+---
+name: pravya
+age: 34
+job: web developer
+skills:
+  - php
+  - Laravel
+  - My sql
+  - Docker
+is_learning: true
