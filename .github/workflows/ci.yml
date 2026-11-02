@@ -1,32 +1,4 @@
 
-# name: first yaml action
-
-# on:
-#   push:
-#     branches: master
-
-# jobs:
-#   first-job:
-#     runs-on: ubuntu-latest
-
-#     steps:
-
-#     - name: step1 - welcome
-#       run: echo "my first action"
-    
-#     - name: step2 - list all 
-#       run: |
-#            echo "list all directories"
-#            ls -a 
-#     - name: step3 - current directory
-#       run: |
-#         echo "print current directory"
-#         pwd
-
-#     - name: step4 - end process
-#       run: echo "complete actions"
-
-
 name: Python CI Pipeline
 
 # When should the workflow run?
