@@ -16,5 +16,5 @@ def test_subtract_numbers_with_zero():
     assert subtract_numbers(10, 0) == 10
 
 def test_subtract_numbers_with_zero():
-    assert subtract_numbers(0, 10) == 10
+    assert subtract_numbers(0, 10) == -10
 
