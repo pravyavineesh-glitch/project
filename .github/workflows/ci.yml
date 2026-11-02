@@ -1,24 +1,25 @@
 
-name: My First Workflow
+name: first yaml action
 
 on:
   push:
-    branches:
-      - master
+    branches: master
 
 jobs:
   first-job:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Step 1 - Welcome
-        run: echo "Welcome to GitHub Actions"
 
-      - name: Step 2 - Check current directory
-        run: pwd
+    - name: step1 - welcome
+      run: echo "my first action"
+    
+    - name: step2 - list all 
+      run: echo "list all directories"
+           ls -a 
+    - name: step3 - current directory
+      run: echo "print current directory"
+           pwd 
 
-      - name: Step 3 - List files
-        run: ls -la
-
-      - name: Step 4 - Finish
-        run: echo "My first CI workflow completed"
+    - name: step4 - end process
+      run: echo "complete actions"
