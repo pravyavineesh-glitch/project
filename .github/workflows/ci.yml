@@ -1,27 +1,77 @@
 
-name: first yaml action
+# name: first yaml action
 
+# on:
+#   push:
+#     branches: master
+
+# jobs:
+#   first-job:
+#     runs-on: ubuntu-latest
+
+#     steps:
+
+#     - name: step1 - welcome
+#       run: echo "my first action"
+    
+#     - name: step2 - list all 
+#       run: |
+#            echo "list all directories"
+#            ls -a 
+#     - name: step3 - current directory
+#       run: |
+#         echo "print current directory"
+#         pwd
+
+#     - name: step4 - end process
+#       run: echo "complete actions"
+
+
+name: Python CI Pipeline
+
+# When should the workflow run?
 on:
   push:
-    branches: master
+    branches:
+      - main
 
+  pull_request:
+    branches:
+      - main
+
+# What tasks should GitHub perform?
 jobs:
-  first-job:
+  build:
+    name: Python Test Job
+
+    # GitHub provides an Ubuntu machine
     runs-on: ubuntu-latest
 
     steps:
 
-    - name: step1 - welcome
-      run: echo "my first action"
-    
-    - name: step2 - list all 
-      run: |
-           echo "list all directories"
-           ls -a 
-    - name: step3 - current directory
-      run: |
-        echo "print current directory"
-        pwd
+      # Step 1: Get source code from GitHub
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: step4 - end process
-      run: echo "complete actions"
+      # Step 2: Install Python
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # Step 3: Install pytest
+      - name: Install dependencies
+        run: pip install pytest
+
+      # Step 4: Check Python syntax
+      - name: Check syntax
+        run: python -m py_compile app.py test_app.py
+
+      # Step 5: Run automated tests
+      - name: Run tests
+        run: pytest -v
+
+      # Step 6: Run application
+      - name: Run application
+        run: python app.py
+
