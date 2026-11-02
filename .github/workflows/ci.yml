@@ -15,11 +15,13 @@ jobs:
       run: echo "my first action"
     
     - name: step2 - list all 
-      run: echo "list all directories"
+      run: |
+           echo "list all directories"
            ls -a 
     - name: step3 - current directory
-      run: echo "print current directory"
-           pwd 
+      run: |
+        echo "print current directory"
+        pwd
 
     - name: step4 - end process
       run: echo "complete actions"
